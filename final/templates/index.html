@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potato Disease Classifier</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        h1 { color: #333; }
+        form { margin: 50px auto; width: 300px; }
+        input[type="file"] { margin-bottom: 20px; }
+        button { padding: 10px 20px; background-color: #28a745; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #218838; }
+        .result { margin-top: 30px; font-size: 1.2em; color: #555; }
+    </style>
+</head>
+<body>
+    <h1>Potato Disease Classifier</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required><br>
+        <button type="submit">Predict</button>
+    </form>
+    {% if prediction %}
+    <div class="result">
+        {{ prediction }}
+    </div>
+    {% endif %}
+</body>
+</html>
